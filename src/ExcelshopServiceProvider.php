@@ -8,7 +8,7 @@ class ExcelshopServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         //регистрируем конфиг
-        $this->mergeConfigFrom(__DIR__ . '/config/excelshop.php', 'excelshop');
+        $this->mergeConfigFrom(__DIR__ . '/../config/excelshop.php', 'excelshop');
 
         if(is_dir(__DIR__ . '/Migrations')) {
             $this->loadMigrationsFrom(__DIR__ . '/Migrations');
@@ -35,11 +35,10 @@ class ExcelshopServiceProvider extends \Illuminate\Support\ServiceProvider
 //        });
 
         $this->publishes([
-            __DIR__.'/config' => base_path('config'),
+            __DIR__.'/../config' => base_path('config'),
         ]);
 
-        include __DIR__.'/Routes/Routes.php';
-
+        include __DIR__ . '/Routes/Routes.php';
     }
 
     public function register()
