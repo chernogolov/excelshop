@@ -1,0 +1,19 @@
+{
+    "name": "achernogolov/excelshop",
+    "description": "Generate you shop from xls/xlsx templates",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AСhernogolov",
+            "email": "chernogolovka@list.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Chernogolov\\Excelshop\\": ""
+        }
+    }
+}
