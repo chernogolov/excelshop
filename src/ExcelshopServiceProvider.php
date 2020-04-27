@@ -1,13 +1,13 @@
 <?php
 namespace Chernogolov\Excelshop;
-/**
- * Сервис провайдер для подключения модулей
- */
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
+
 class ExcelshopServiceProvider extends \Illuminate\Support\ServiceProvider
 {
+
     public function boot()
     {
-        //регистрируем конфиг
         $this->mergeConfigFrom(__DIR__ . '/../config/excelshop.php', 'excelshop');
 
         if(is_dir(__DIR__ . '/Migrations')) {
@@ -26,13 +26,13 @@ class ExcelshopServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__.'/Assets' => public_path('vendor/excelshop'),
         ], 'public');
 
-//        Gate::define('view-admin', function ($user) {
-//            return in_array($user->id, [1]);
-//        });
-//
-//        Gate::define('view-regs', function ($user) {
-//            return RegsUsers::where([['user_id', '=', $user->id],['view', '=', 1]])->first();
-//        });
+        Gate::define('view-admin', function ($user) {
+            return in_array($user->id, [1]);
+        });
+
+        Gate::define('view-regs', function ($user) {
+            return RegsUsers::where([['user_id', '=', $user->id],['view', '=', 1]])->first();
+        });
 
         $this->publishes([
             __DIR__.'/../config' => base_path('config'),

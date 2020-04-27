@@ -1,7 +1,7 @@
 {
     "name": "chernogolov/excelshop",
     "description": "Generate you shop from xls/xlsx templates",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "baum/baum": "~1.1",
+        "maatwebsite/excel": "^3.1"
+    },
     "autoload": {
         "psr-4": {
             "Chernogolov\\Excelshop\\": "src/"
